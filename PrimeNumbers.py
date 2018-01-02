@@ -54,3 +54,10 @@ def prog():
 import statistics
 my_list = [] 
 prog()
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.mlab as mlab
+z = np.linspace(mean - 3*sd,mean + 3*sd)
+plt.plot(z, mlab.normpdf(z, mean, sd))
+plt.show()
+plt.hist(my_list, bins="auto")
