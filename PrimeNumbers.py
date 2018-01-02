@@ -54,7 +54,3 @@ def prog():
 import statistics
 my_list = [] 
 prog()
-import scipy.stats
-import matplotlib.pyplot as plt
-scipy.stats.norm(float(mean), float(sd))
-plt.show()
