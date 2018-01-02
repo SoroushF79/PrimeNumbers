@@ -5,6 +5,28 @@ def check(a):
             prog()
         else:
             break
+def ND():
+    global Questi
+    Questi = input("Would you like to see the normal distribution of the prime numbers in your interval? ")
+    if (Questi.lower() == "yes") or (Questi.lower() == "y"):
+        z = np.linspace(mean - 3*sd,mean + 3*sd)
+        plt.plot(z, mlab.normpdf(z, mean, sd))
+        plt.show()
+    elif (Questi.lower() == "no") or (Questi.lower() == "n"):
+        print("OK")
+    else:
+        print("I did not understand that.")
+        ND(Questi)
+def Histo():
+    global Questio
+    Questio = input("Would you like to see the histogram of the prime numbers in your interval? ")
+    if (Questio.lower() == "yes") or (Questio.lower() == "y"):
+        plt.hist(my_list, bins="auto")
+    elif (Questio.lower() == "no") or (Questio.lower() == "n"):
+        print("OK")
+    else:
+        print("I did not understand that.")
+        Histo(Questio)
 def finish():
     global Quest
     Quest = input("Would you like to see all the prime numbers from your interval? ")
@@ -51,13 +73,13 @@ def prog():
     print(("The mean and median of the prime numbers in your interval are %f and %d, respectively.") % (mean, median))
     print(("The standard deviaation of the prime numbers in your interval is %f.") % (sd))
     finish()
+import sys
 import statistics
-my_list = [] 
-prog()
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.mlab as mlab
-z = np.linspace(mean - 3*sd,mean + 3*sd)
-plt.plot(z, mlab.normpdf(z, mean, sd))
-plt.show()
-plt.hist(my_list, bins="auto")
+my_list = [] 
+prog()
+ND()
+Histo()
+sys.exit()
